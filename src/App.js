@@ -1,15 +1,15 @@
 // import logo from './logo.svg';
 import './App.css';
-// import About from './components/About';
+import About from './components/About';
 import Alert from './components/Alert';
 import Navbar from './components/Navbar';
 import TextFrom from './components/TextFrom';
 import React, { useState } from 'react';
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
 
 function App() {
@@ -115,20 +115,20 @@ function App() {
     <>
           {/* <Navbar Titles="Groserys" abouUs="About us" mode1={mode} togglemode={togglfunc} blue={bluefuc} pink={pinkfuc} green={greenfuc}/> */}
          
-          {/* <Router> */}
+          <Router>
               <Navbar Titles="Groserys" abouUs="About us" mode1={mode} togglemode={togglfunc} />
               <Alert alert={alert}/>
               {/* <TextFrom showalert1={showalert} heading="Enter the text to analyze below" mode1={mode} /> */}
 
-              {/* <Switch>
+              <Switch>
               <Route exact path="/about">
                 <About /> 
               </Route>
-              <Route  path="/"> */}
+              <Route  path="/">
                   <TextFrom showalert1={showalert} heading="Enter the text to analyze below" mode1={mode} />
-              {/* </Route>
+              </Route>
             </Switch>
-        </Router> */}
+        </Router>
     </>
   );
 }
