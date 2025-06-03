@@ -32,7 +32,7 @@ function App() {
     setmode('dark')
     document.body.style.backgroundColor= '#021b34';
     showalert("dark mode enable","success")
-    document.title="TextUtilty -Dark Mode";
+    // document.title="TextUtilty -Dark Mode";
 
     // set time out method 
 
@@ -57,7 +57,7 @@ function App() {
     setmode('light')
     document.body.style.backgroundColor= 'white';
     showalert("light mode enable","danger")
-    document.title="TextUtilty -Light Mode";
+    // document.title="TextUtilty -Light Mode";
 
   }
 }
@@ -122,10 +122,10 @@ function App() {
 
               <Switch>
               <Route exact path="/about">
-                <About /> 
+                <About mode={mode} /> 
               </Route>
               <Route  path="/">
-                  <TextFrom showalert1={showalert} heading="Enter the text to analyze below" mode1={mode} />
+                  <TextFrom showalert1={showalert} heading=" Try TextUtils - Word & Character Counter" mode1={mode} />
               </Route>
             </Switch>
         </Router>

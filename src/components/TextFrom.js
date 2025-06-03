@@ -33,9 +33,8 @@ export default function TextFrom(props) {
         setText(newtext);
     }
       function handlesentececlick(){
-         console.log('click the button'+ text  );
-        var newtext =text.charAt(1).toUpperCase();
-        setText(newtext);
+         navigator.clipboard.writeText(text);
+         props.showalert1("copied ur text","success")
     }
 
     const handleronchange =(event) =>{
@@ -50,18 +49,18 @@ export default function TextFrom(props) {
 
             <div className="container">
                 <div className="container my-3 " style={{color : props.mode1==='dark'?'white':'black'}}>
-                        <h1>{props.heading}</h1>
+                        <h1 className='mb -4'>{props.heading}</h1>
                 </div>
 
                 <div className=" container my-3">
                         {/* <label htmlFor="mytext"></label> */}
-                        <textarea className="form-control"  value={text} id="box1" rows="10" onChange={handleronchange} style={{backgroundColor : props.mode1==='dark'?'grey':'white', color:props.mode1==='dark'?'white':'black' }} ></textarea>
+                        <textarea className="form-control"  value={text} id="box1" rows="10" onChange={handleronchange} style={{backgroundColor : props.mode1==='dark'?'#253546':'white', color:props.mode1==='dark'?'white':'black' }} ></textarea>
                 </div>
                 <div className=" container my-3">
-                        <button className="btn btn-primary mx-1" onClick={handleupclick}>Convert to uppercae</button>
-                        <button className="btn btn-primary mx-1" onClick={handleloclick}>Convert to lowercase</button>
-                        <button className="btn btn-primary mx-1" onClick={handleclearclick}>Clear ur text</button>
-                        <button className="btn btn-primary mx-1" onClick={handlesentececlick}>Sentence case</button>
+                        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleupclick}>Convert to uppercae</button>
+                        <button disabled={text.length===0}   className="btn btn-primary mx-1 my-1"  onClick={handleloclick}>Convert to lowercase</button>
+                        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleclearclick}>Clear ur text</button>
+                        <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handlesentececlick}>Copy</button>
                 </div>
             </div>
 
@@ -69,7 +68,7 @@ export default function TextFrom(props) {
                 <h1>Ur summary is Under/Below</h1>
                 <p>Your sentence have {text.trim().split(/\s+/).filter(Boolean).length} words and {text.length} characters</p>
                 {/* <p>Your sentence have {text.split(/\s+/).length} words and {text.length} characters</p> */}
-                <p>you read the ur sentence within {0.008 * text.split(" ").length}</p>
+                <p>you read the ur sentence within {0.008 * text.split(" ").filter(Boolean).length}</p>
             </div>
 
             <div className="container my-3" style={{color : props.mode1==='dark'?'white':'black'}}>
